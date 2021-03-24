@@ -13,10 +13,9 @@ export default class BookList extends Component {
   render() {
     const { listOfBooks } = this.props;
 
-    // console.log(listOfBooks);
     return (
       <Container className='mt-5'>
-        <Row>
+        <Row className='mx-0'>
           <Form.Group className='w-100'>
             <Form.Control
               size='lg'
@@ -27,14 +26,14 @@ export default class BookList extends Component {
             />
           </Form.Group>
         </Row>
-        <Row>
+        <Row className='justify-content-center'>
           {listOfBooks
             .filter((el) =>
               el.title.toLowerCase().includes(this.state.query.toLowerCase())
             )
             .sort((a, b) => a.title - b.title)
             .map((item) => (
-              <Col xs={12} md={3} key={item.asin}>
+              <Col xs={10} md={4} lg={3} key={item.asin} className='mb-3'>
                 <SingleBook book={item} />
               </Col>
             ))}

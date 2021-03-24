@@ -1,27 +1,6 @@
-// import React from 'react';
-
-// export default function SingleBook({ book: { img, title } }) {
-//   return (
-//     <Card>
-//       <Card.Img
-//         variant='top'
-//         className='img-fluid'
-//         src={img}
-//         alt='book cover'
-//       />
-//       <Card.Body>
-//         <Card.Title>{title ?? 'Some Title'}</Card.Title>
-//         {/* <Card.Text>
-//           Some quick example text to build on the card title and make up the
-//           bulk of the card's content.
-//         </Card.Text> */}
-//       </Card.Body>
-//     </Card>
-//   );
-// }
-
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
+// import styled from 'styled-components';
 
 export default class SingleBook extends Component {
   state = {
@@ -38,7 +17,7 @@ export default class SingleBook extends Component {
     } = this.props;
 
     return (
-      <Card onClick={this.handleClick}>
+      <Card onClick={this.handleClick} className='h-100'>
         <Card.Img
           variant='top'
           className='img-fluid'
