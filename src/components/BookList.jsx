@@ -30,10 +30,8 @@ export default class BookList extends Component {
         </Row>
         <Row className='justify-content-center'>
           {listOfBooks.every(
-            (libro) =>
-              !libro.title
-                .toLowerCase()
-                .includes(this.state.query.toLowerCase())
+            (book) =>
+              !book.title.toLowerCase().includes(this.state.query.toLowerCase())
           ) ? (
             <WarningSing message='Book not found!' />
           ) : (
