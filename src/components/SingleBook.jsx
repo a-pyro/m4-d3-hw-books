@@ -11,9 +11,7 @@ export default function SingleBook({ book: { img, title } }) {
         alt='book cover'
       />
       <Card.Body>
-        <Card.Title className='text-truncate'>
-          {title ?? 'Some Title'}
-        </Card.Title>
+        <Card.Title>{title ?? 'Some Title'}</Card.Title>
         {/* <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
