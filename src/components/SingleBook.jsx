@@ -1,22 +1,58 @@
-import React from 'react';
+// import React from 'react';
+
+// export default function SingleBook({ book: { img, title } }) {
+//   return (
+//     <Card>
+//       <Card.Img
+//         variant='top'
+//         className='img-fluid'
+//         src={img}
+//         alt='book cover'
+//       />
+//       <Card.Body>
+//         <Card.Title>{title ?? 'Some Title'}</Card.Title>
+//         {/* <Card.Text>
+//           Some quick example text to build on the card title and make up the
+//           bulk of the card's content.
+//         </Card.Text> */}
+//       </Card.Body>
+//     </Card>
+//   );
+// }
+
+import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 
-export default function SingleBook({ book: { img, title } }) {
-  return (
-    <Card>
-      <Card.Img
-        variant='top'
-        className='img-fluid'
-        src={img}
-        alt='book cover'
-      />
-      <Card.Body>
-        <Card.Title>{title ?? 'Some Title'}</Card.Title>
-        {/* <Card.Text>
+export default class SingleBook extends Component {
+  state = {
+    selected: false,
+  };
+
+  handleClick = () => {
+    // console.log(e);
+    this.setState({ selected: !this.state.selected });
+  };
+  render() {
+    const {
+      book: { img, title },
+    } = this.props;
+
+    return (
+      <Card onClick={this.handleClick}>
+        <Card.Img
+          variant='top'
+          className='img-fluid'
+          src={img}
+          alt='book cover'
+        />
+        <Card.Body className={this.state.selected ? 'bg-info' : ''}>
+          <Card.Title>{title ?? 'Some Title'}</Card.Title>
+          {/* <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text> */}
-      </Card.Body>
-    </Card>
-  );
+        </Card.Body>
+      </Card>
+    );
+  }
 }
