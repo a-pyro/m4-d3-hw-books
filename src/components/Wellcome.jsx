@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, Row } from 'react-bootstrap';
+import { Jumbotron, Container } from 'react-bootstrap';
 
 export default function Wellcome() {
   return (

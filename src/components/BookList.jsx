@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import SingleBook from './SingleBook';
+import WarningSing from './WarningSing';
 // import Warning from './Warning';
 
 export default class BookList extends Component {
@@ -28,16 +29,24 @@ export default class BookList extends Component {
           </Form.Group>
         </Row>
         <Row className='justify-content-center'>
-          {listOfBooks
-            .filter((el) =>
-              el.title.toLowerCase().includes(this.state.query.toLowerCase())
-            )
-            .sort((a, b) => a.title - b.title)
-            .map((item) => (
-              <Col xs={10} md={4} lg={3} key={item.asin} className='mb-3'>
-                <SingleBook book={item} />
-              </Col>
-            ))}
+          {listOfBooks.every(
+            (libro) =>
+              !libro.title
+                .toLowerCase()
+                .includes(this.state.query.toLowerCase())
+          ) ? (
+            <WarningSing message='Book not found!' />
+          ) : (
+            listOfBooks
+              .filter((el) =>
+                el.title.toLowerCase().includes(this.state.query.toLowerCase())
+              )
+              .map((item) => (
+                <Col xs={10} md={4} lg={3} key={item.asin} className='mb-3'>
+                  <SingleBook book={item} />
+                </Col>
+              ))
+          )}
         </Row>
       </Container>
     );
