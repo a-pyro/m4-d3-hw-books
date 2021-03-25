@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
+import CommentArea from './CommentArea';
 
 export default class SingleBook extends Component {
   state = {
     selected: false,
+    asin: '',
   };
 
   handleClick = () => {
     // console.log(e);
-    this.setState({ selected: !this.state.selected });
+    this.setState({
+      selected: !this.state.selected,
+      asin: this.props.book.asin,
+    });
   };
   render() {
     const {
@@ -16,8 +21,9 @@ export default class SingleBook extends Component {
     } = this.props;
 
     return (
-      <Card onClick={this.handleClick} className='h-100'>
+      <Card className='h-100'>
         <Card.Img
+          onClick={this.handleClick}
           variant='top'
           className='img-fluid'
           src={img}
@@ -25,11 +31,9 @@ export default class SingleBook extends Component {
         />
         <Card.Body className={this.state.selected ? 'bg-info' : ''}>
           <Card.Title>{title ?? 'Some Title'}</Card.Title>
-          {/* <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text> */}
+          {this.state.selected && <CommentArea asin={this.state.asin} />}
         </Card.Body>
+        {/* {this.state.selected && <CommentArea />} */}
       </Card>
     );
   }

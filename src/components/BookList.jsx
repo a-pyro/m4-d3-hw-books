@@ -12,6 +12,7 @@ export default class BookList extends Component {
   filterBookList = (e) => {
     this.setState({ query: e.target.value });
   };
+
   render() {
     const { listOfBooks } = this.props;
 
