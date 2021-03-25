@@ -17,20 +17,21 @@ export default function CommentArea(props) {
         Comment Area
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal scrollable show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Comments</Modal.Title>
         </Modal.Header>
-        <Modal.Body scrollable>
-          {<CommentList asin={asin} />}
+        <Modal.Body>
           {<AddComment asin={asin} />}
+          {<CommentList asin={asin} />}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
+          <Button
+            variant='outline-danger'
+            className='w-100'
+            onClick={handleClose}
+          >
             Close
-          </Button>
-          <Button variant='primary' onClick={handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

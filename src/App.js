@@ -14,7 +14,6 @@ function App() {
       <MyNav title='BookStore' />
       <Wellcome />
       <BookList listOfBooks={fantasy} />
-
       <Footer />
     </>
   );

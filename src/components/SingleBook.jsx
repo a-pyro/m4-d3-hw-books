@@ -15,6 +15,7 @@ export default class SingleBook extends Component {
       asin: this.props.book.asin,
     });
   };
+
   render() {
     const {
       book: { img, title },
