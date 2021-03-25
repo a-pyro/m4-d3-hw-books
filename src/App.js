@@ -6,6 +6,7 @@ import BookList from './components/BookList';
 import fantasy from './data/fantasy';
 import MyNav from './components/MyNav';
 import Wellcome from './components/Wellcome';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <MyNav title='BookStore' />
       <Wellcome />
       <BookList listOfBooks={fantasy} />
+      <Footer />
     </>
   );
 }

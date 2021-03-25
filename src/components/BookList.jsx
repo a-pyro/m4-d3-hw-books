@@ -29,6 +29,7 @@ export default class BookList extends Component {
           </Form.Group>
         </Row>
         <Row className='justify-content-center'>
+          {/* if we don't have any match, show the Warning */}
           {listOfBooks.every(
             (book) =>
               !book.title.toLowerCase().includes(this.state.query.toLowerCase())
