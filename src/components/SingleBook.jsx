@@ -21,19 +21,17 @@ export default class SingleBook extends Component {
     } = this.props;
 
     return (
-      <Card className='h-100'>
+      <Card onClick={this.handleClick} className='h-100'>
         <Card.Img
-          onClick={this.handleClick}
           variant='top'
           className='img-fluid'
           src={img}
           alt='book cover'
         />
-        <Card.Body className={this.state.selected ? 'bg-info' : ''}>
+        <Card.Body>
           <Card.Title>{title ?? 'Some Title'}</Card.Title>
-          {this.state.selected && <CommentArea asin={this.state.asin} />}
+          <CommentArea asin={this.state.asin} />
         </Card.Body>
-        {/* {this.state.selected && <CommentArea />} */}
       </Card>
     );
   }

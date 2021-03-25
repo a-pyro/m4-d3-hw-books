@@ -1,4 +1,4 @@
-import { Modal, Container, Row, Col, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import AddComment from './AddComment';
 import CommentList from './CommentList';
@@ -21,7 +21,7 @@ export default function CommentArea(props) {
         <Modal.Header closeButton>
           <Modal.Title>Comments</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body scrollable>
           {<CommentList asin={asin} />}
           {<AddComment asin={asin} />}
         </Modal.Body>

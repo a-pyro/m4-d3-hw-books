@@ -7,7 +7,6 @@ import fantasy from './data/fantasy';
 import MyNav from './components/MyNav';
 import Wellcome from './components/Wellcome';
 import Footer from './components/Footer';
-import CommentArea from './components/CommentArea';
 
 function App() {
   return (
