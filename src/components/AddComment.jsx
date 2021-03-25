@@ -38,6 +38,7 @@ export default class AddComment extends Component {
         console.log('resp ok');
       } else {
         console.log('resp not ok');
+        console.log(response.json());
       }
     } catch (error) {
       console.log(error);
