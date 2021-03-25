@@ -1,5 +1,7 @@
 import { Modal, Container, Row, Col, Button } from 'react-bootstrap';
 import React, { useState } from 'react';
+import AddComment from './AddComment';
+import CommentList from './CommentList';
 
 export default function CommentArea(props) {
   const [show, setShow] = useState(false);
@@ -7,7 +9,7 @@ export default function CommentArea(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(props.asin);
+  const { asin } = props;
 
   return (
     <>
@@ -17,9 +19,12 @@ export default function CommentArea(props) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Comments</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          {<CommentList asin={asin} />}
+          {<AddComment asin={asin} />}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
             Close
