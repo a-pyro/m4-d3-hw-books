@@ -23,7 +23,7 @@ export default class AddComment extends Component {
     console.log(this.state);
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${this.props.asin}`,
+        `https://striveschool-api.herokuapp.com/api/comments/`,
         {
           method: 'POST',
           body: JSON.stringify(this.state),
@@ -38,7 +38,7 @@ export default class AddComment extends Component {
         console.log('resp ok');
       } else {
         console.log('resp not ok');
-        console.log(response.json());
+        // console.log(response.json());
       }
     } catch (error) {
       console.log(error);
