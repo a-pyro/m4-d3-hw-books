@@ -13,7 +13,7 @@ export default class BookList extends Component {
 
   handleBookClick = (asin) => {
     this.setState({ selectedBook: asin });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   filterBookList = (e) => {
@@ -65,7 +65,7 @@ export default class BookList extends Component {
           </Col>
 
           <Col md={4}>
-            <CommentArea />
+            <CommentArea bookAsin={this.state.selectedBook} />
           </Col>
         </Row>
       </Container>

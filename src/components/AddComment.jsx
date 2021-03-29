@@ -79,7 +79,7 @@ export default class AddComment extends Component {
             </Form.Control>
           </Form.Group>
 
-          <Button variant='outline-info' type='submit' className='w-100'>
+          <Button variant='secondary' type='submit' className='w-100'>
             Submit
           </Button>
         </Form>
