@@ -17,7 +17,11 @@ export default class CommentList extends Component {
 
           <ListGroup>
             {this.props.commentList.map((comm) => (
-              <SingleComment comment={comm} key={comm._id} />
+              <SingleComment
+                fetchComments={this.props.fetchComments}
+                comment={comm}
+                key={comm._id}
+              />
             ))}
           </ListGroup>
         </Row>
