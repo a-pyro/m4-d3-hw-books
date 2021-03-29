@@ -1,0 +1,4 @@
+.customCardImg {
+  object-fit: contain;
+  background-color: red;
+}

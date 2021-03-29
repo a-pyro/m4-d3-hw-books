@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import CommentArea from './CommentArea';
+import styles from '../styles/SingleBook.module.css';
 
 export default class SingleBook extends Component {
   state = {
@@ -25,14 +25,10 @@ export default class SingleBook extends Component {
       <Card onClick={this.handleClick} className='h-100'>
         <Card.Img
           variant='top'
-          className='img-fluid'
+          className={styles.customCardImg}
           src={img}
           alt='book cover'
         />
-        <Card.Body>
-          <Card.Title>{title ?? 'Some Title'}</Card.Title>
-          <CommentArea asin={this.state.asin} />
-        </Card.Body>
       </Card>
     );
   }
