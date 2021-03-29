@@ -7,7 +7,7 @@ export default class CommentList extends Component {
     comments: [],
   };
 
-  componentDidMount = async () => {
+  /* componentDidMount = async () => {
     // console.log(this.props.asin);
     try {
       const resp = await fetch(
@@ -32,12 +32,13 @@ export default class CommentList extends Component {
     } catch (error) {
       console.log(error);
     }
-  };
+  }; */
 
   render() {
     return (
       <Container fluid>
         <h5>Comment Area</h5>
+
         <Row className='justify-content-center'>
           <ListGroup>
             {this.state.comments.map((comm) => (

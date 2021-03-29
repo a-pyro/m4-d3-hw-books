@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import styles from '../styles/SingleBook.module.css';
 
 export default class SingleBook extends Component {
-  state = {
+  /*   state = {
     selected: false,
     asin: '',
   };
@@ -14,15 +14,16 @@ export default class SingleBook extends Component {
       selected: !this.state.selected,
       asin: this.props.book.asin,
     });
-  };
+  }; */
 
   render() {
     const {
-      book: { img, title },
+      book: { img, title, asin },
     } = this.props;
 
+    // console.log(asin);
     return (
-      <Card onClick={this.handleClick} className='h-100'>
+      <Card onClick={() => this.props.handleBookClick(asin)} className='h-100'>
         <Card.Img
           variant='top'
           className={styles.customCardImg}
