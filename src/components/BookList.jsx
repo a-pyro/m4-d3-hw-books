@@ -13,7 +13,6 @@ export default class BookList extends Component {
 
   handleBookClick = (asin) => {
     this.setState({ selectedBook: asin });
-    // console.log(this.state);
   };
 
   filterBookList = (e) => {

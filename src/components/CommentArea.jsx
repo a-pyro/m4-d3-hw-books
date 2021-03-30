@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddComment from './AddComment';
 import CommentList from './CommentList';
+import styles from '../styles/CommentArea.module.css';
 
 export default class CommentArea extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class CommentArea extends Component {
     }
   };
 
-  componentDidUpdate = async (prevProp, prevState) => {
+  componentDidUpdate = (prevProp, prevState) => {
     console.log('COMMENT AREA DID UPDATE');
     if (prevProp.bookAsin !== this.props.bookAsin) {
       this.fetchComments();
@@ -42,13 +43,16 @@ export default class CommentArea extends Component {
 
   render() {
     return (
-      <>
+      <div className={styles.sticky}>
         <CommentList
           fetchComments={this.fetchComments}
           commentList={this.state.commentList}
         />
-        <AddComment asin={this.props.bookAsin} />
-      </>
+        <AddComment
+          fetchComments={this.fetchComments}
+          asin={this.props.bookAsin}
+        />
+      </div>
     );
   }
 }
