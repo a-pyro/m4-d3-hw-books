@@ -34,7 +34,7 @@ export default class CommentArea extends Component {
     }
   };
 
-  componentDidUpdate = (prevProp, prevState) => {
+  componentDidUpdate = (prevProp) => {
     console.log('COMMENT AREA DID UPDATE');
     if (prevProp.bookAsin !== this.props.bookAsin) {
       this.fetchComments();
