@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import AddComment from './AddComment';
 import CommentList from './CommentList';
 import styles from '../styles/CommentArea.module.css';
-
+import { Spinner, Container } from 'react-bootstrap';
 export default class CommentArea extends Component {
   state = {
     commentList: [],
+    isLoading: false,
   };
 
   fetchComments = async () => {
     try {
+      this.setState({ isLoading: true });
       const resp = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/${this.props.bookAsin}`,
         {
           headers: {
             Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTU5ODgzMzUsImV4cCI6MTYxNzE5NzkzNX0.ZkirlemsOm9gKIdP1GliGmMvD2oYPJDMHyPyrTjZkUU',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTcyMDE4NjMsImV4cCI6MTYxODQxMTQ2M30.ru_9O8RdNoCPKpFG-dgtPC8cqI3OozYpyQArNhtE9yg',
           },
         }
       );
@@ -24,7 +26,7 @@ export default class CommentArea extends Component {
         // console.log('resp ok');
         const data = await resp.json();
         // console.log(data);
-        this.setState({ commentList: data });
+        this.setState({ commentList: data, isLoading: false });
         console.log(this.state.commentList);
       } else {
         // console.log('resp not ok');
@@ -43,16 +45,23 @@ export default class CommentArea extends Component {
 
   render() {
     return (
-      <div className={styles.sticky}>
-        <CommentList
-          fetchComments={this.fetchComments}
-          commentList={this.state.commentList}
-        />
+      <Container fluid className={styles.sticky}>
+        {this.state.isLoading && (
+          <div className='d-flex justify-content-center'>
+            <Spinner animation='grow' />
+          </div>
+        )}
+        {!this.state.isLoading && (
+          <CommentList
+            fetchComments={this.fetchComments}
+            commentList={this.state.commentList}
+          />
+        )}
         <AddComment
           fetchComments={this.fetchComments}
           asin={this.props.bookAsin}
         />
-      </div>
+      </Container>
     );
   }
 }

@@ -11,7 +11,7 @@ export default class SingleComment extends Component {
 
           headers: {
             Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTU5ODgzMzUsImV4cCI6MTYxNzE5NzkzNX0.ZkirlemsOm9gKIdP1GliGmMvD2oYPJDMHyPyrTjZkUU',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTcyMDE4NjMsImV4cCI6MTYxODQxMTQ2M30.ru_9O8RdNoCPKpFG-dgtPC8cqI3OozYpyQArNhtE9yg',
           },
         }
       );
@@ -39,9 +39,10 @@ export default class SingleComment extends Component {
           {this.props.comment.rate}/5!
           <Button
             onClick={() => this.removeComment(this.props.comment._id)}
-            variant='danger'
+            variant='warning'
+            className='rounded-circle mr-auto'
           >
-            Remove
+            🗑
           </Button>
         </ListGroup.Item>
       </>

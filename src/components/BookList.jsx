@@ -23,8 +23,8 @@ export default class BookList extends Component {
     const { listOfBooks } = this.props;
 
     return (
-      <Container fluid className='mt-5'>
-        <Row className='mx-0'>
+      <Container fluid className='mt-5 '>
+        <Row className='mx-0 justify-content-center'>
           <Col md={6}>
             <Row>
               <Form.Group className='w-100'>

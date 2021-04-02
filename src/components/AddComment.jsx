@@ -30,7 +30,7 @@ export default class AddComment extends Component {
           headers: {
             'Content-Type': 'application/json',
             Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTU5ODgzMzUsImV4cCI6MTYxNzE5NzkzNX0.ZkirlemsOm9gKIdP1GliGmMvD2oYPJDMHyPyrTjZkUU',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTcyMDE4NjMsImV4cCI6MTYxODQxMTQ2M30.ru_9O8RdNoCPKpFG-dgtPC8cqI3OozYpyQArNhtE9yg',
           },
         }
       );
@@ -48,7 +48,7 @@ export default class AddComment extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Label>Comment</Form.Label>
@@ -84,7 +84,7 @@ export default class AddComment extends Component {
             Submit
           </Button>
         </Form>
-      </Container>
+      </>
     );
   }
 }

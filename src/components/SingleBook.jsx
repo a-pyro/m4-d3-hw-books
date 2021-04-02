@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import styles from '../styles/SingleBook.module.css';
+// import styles from '../styles/SingleBook.module.css';
+import styled from 'styled-components';
 
 export default class SingleBook extends Component {
   state = {
@@ -13,20 +14,22 @@ export default class SingleBook extends Component {
   };
 
   render() {
-    const {
-      book: { img, asin },
-    } = this.props;
-
     // console.log(asin);
     return (
-      <Card onClick={this.handleClick} className='h-100'>
-        <Card.Img
-          variant='top'
-          className={styles.customCardImg}
-          src={this.props.book.img}
-          alt='book cover'
-        />
-      </Card>
+      <StyledCard>
+        <Card onClick={this.handleClick} className='h-100'>
+          <Card.Img variant='top' src={this.props.book.img} alt='book cover' />
+        </Card>
+      </StyledCard>
     );
   }
 }
+
+const StyledCard = styled.div`
+  height: 30vh;
+  background-color: blue;
+
+  Card {
+    background-color: green;
+  }
+`;
