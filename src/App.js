@@ -12,50 +12,58 @@ import scifi from './data/scifi.json';
 import MyNav from './components/MyNav';
 import Wellcome from './components/Wellcome';
 import Footer from './components/Footer';
+import { Spinner } from 'react-bootstrap';
 
 class App extends Component {
   state = {
     listOfBooks: [],
     category: '',
+    isLoading: true,
   };
 
   componentDidMount = () => {
-    this.setState({ listOfBooks: fantasy });
+    this.setState({ listOfBooks: fantasy, isLoading: false });
   };
 
   handleCategoryChange = (cat) => {
-    this.setState({ category: cat });
+    this.setState({ category: cat, isLoading: false });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
     console.log('App did update');
-    if (this.state.category !== prevState.category) {
+    if (prevState.category !== this.state.category) {
       let newCatToLoad;
       switch (this.state.category) {
-        case 'Fantasy':
+        case 'fantasy':
           newCatToLoad = fantasy;
           break;
-        case 'History':
+        case 'history':
           newCatToLoad = history;
 
           break;
 
-        case 'Horror':
+        case 'horror':
           newCatToLoad = horror;
 
           break;
-        case 'Romance':
+        case 'romance':
           newCatToLoad = romance;
 
           break;
-        case 'Scifi':
+        case 'scifi':
           newCatToLoad = scifi;
-
           break;
 
         default:
+          newCatToLoad = fantasy;
+
           break;
       }
+      this.setState({
+        ...this.state,
+        listOfBooks: newCatToLoad,
+        isLoading: false,
+      });
     }
   };
 
@@ -64,8 +72,16 @@ class App extends Component {
       <>
         <MyNav title='BookStore' />
         <Wellcome handleCategoryChange={this.handleCategoryChange} />
-        <BookList listOfBooks={this.state.listOfBooks} />
-        <Footer />
+        {/* {this.state.isLoading && <Spinner animation='grow' />}
+        {!this.state.isLoading && (
+          <BookList listOfBooks={this.state.listOfBooks} />
+        )} */}
+
+        {this.state.isLoading ? (
+          <Spinner animation='grow' />
+        ) : (
+          <BookList listOfBooks={this.state.listOfBooks} />
+        )}
       </>
     );
   }
