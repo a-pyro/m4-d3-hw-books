@@ -34,6 +34,7 @@ export default class AddComment extends Component {
           },
         }
       );
+      console.log(this.state);
       if (response.ok) {
         console.log('resp ok');
         this.props.fetchComments();

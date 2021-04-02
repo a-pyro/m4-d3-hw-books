@@ -6,7 +6,10 @@ import { Spinner, Container } from 'react-bootstrap';
 export default class CommentArea extends Component {
   state = {
     commentList: [],
+    bookName: '',
     isLoading: false,
+    isError: false,
+    errorMsg: '',
   };
 
   fetchComments = async () => {
@@ -25,19 +28,21 @@ export default class CommentArea extends Component {
       if (resp.ok) {
         // console.log('resp ok');
         const data = await resp.json();
-        // console.log(data);
+        console.log(data);
         this.setState({ commentList: data, isLoading: false });
         console.log(this.state.commentList);
       } else {
         // console.log('resp not ok');
       }
     } catch (error) {
+      this.setState({ isError: true, errorMsg: error });
       console.log(error);
     }
   };
 
   componentDidUpdate = (prevProp) => {
     console.log('COMMENT AREA DID UPDATE');
+
     if (prevProp.bookAsin !== this.props.bookAsin) {
       this.fetchComments();
     }
@@ -53,6 +58,7 @@ export default class CommentArea extends Component {
         )}
         {!this.state.isLoading && (
           <CommentList
+            bookTitle={this.props.bookTitle}
             fetchComments={this.fetchComments}
             commentList={this.state.commentList}
           />

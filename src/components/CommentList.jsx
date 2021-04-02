@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, ListGroup, Alert, Col } from 'react-bootstrap';
+import { Row, ListGroup, Alert, Col } from 'react-bootstrap';
 import SingleComment from './SingleComment';
 
 export default class CommentList extends Component {
@@ -10,8 +10,8 @@ export default class CommentList extends Component {
           <Col>
             <Alert variant='info' className='w-100'>
               {this.props.commentList.length === 0
-                ? 'No Comments for this title'
-                : `Comments for this title`}
+                ? `No Comments for ${this.props.bookTitle}`
+                : `Comments for ${this.props.bookTitle}`}
             </Alert>
           </Col>
         </Row>

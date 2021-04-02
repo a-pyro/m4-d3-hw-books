@@ -34,13 +34,16 @@ export default class SingleComment extends Component {
 
     return (
       <>
-        <ListGroup.Item className=''>
-          {this.props.comment.comment} by {this.props.comment.author} who rated{' '}
-          {this.props.comment.rate}/5!
+        <ListGroup.Item className='d-flex justify-content-between align-items-center'>
+          <div>
+            {this.props.comment.comment} by {this.props.comment.author} who
+            rated {'⭐️'.repeat(parseInt(this.props.comment.rate))}
+          </div>
+
           <Button
             onClick={() => this.removeComment(this.props.comment._id)}
             variant='warning'
-            className='rounded-circle mr-auto'
+            className='rounded-circle'
           >
             🗑
           </Button>

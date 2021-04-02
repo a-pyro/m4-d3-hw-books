@@ -9,10 +9,11 @@ export default class BookList extends Component {
   state = {
     query: '',
     selectedBook: '',
+    bookTitle: '',
   };
 
-  handleBookClick = (asin) => {
-    this.setState({ selectedBook: asin });
+  handleBookClick = (asin, title) => {
+    this.setState({ selectedBook: asin, bookTitle: title });
   };
 
   filterBookList = (e) => {
@@ -27,15 +28,17 @@ export default class BookList extends Component {
         <Row className='mx-0 justify-content-center'>
           <Col md={6}>
             <Row>
-              <Form.Group className='w-100'>
-                <Form.Control
-                  size='lg'
-                  type='text'
-                  placeholder='Filter Books'
-                  onChange={this.filterBookList}
-                  value={this.state.query}
-                />
-              </Form.Group>
+              <Col xs={12}>
+                <Form.Group className='w-100'>
+                  <Form.Control
+                    size='lg'
+                    type='text'
+                    placeholder='Filter Books'
+                    onChange={this.filterBookList}
+                    value={this.state.query}
+                  />
+                </Form.Group>
+              </Col>
               {/* if we don't have any match, show the Warning */}
               {listOfBooks.every(
                 (book) =>
@@ -64,7 +67,10 @@ export default class BookList extends Component {
           </Col>
 
           <Col md={4}>
-            <CommentArea bookAsin={this.state.selectedBook} />
+            <CommentArea
+              bookTitle={this.state.bookTitle}
+              bookAsin={this.state.selectedBook}
+            />
           </Col>
         </Row>
       </Container>
