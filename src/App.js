@@ -11,7 +11,7 @@ import romance from './data/romance.json';
 import scifi from './data/scifi.json';
 import MyNav from './components/MyNav';
 import Wellcome from './components/Wellcome';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import { Spinner } from 'react-bootstrap';
 
 class App extends Component {

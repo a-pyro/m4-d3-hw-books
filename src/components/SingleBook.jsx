@@ -14,11 +14,7 @@ export default class SingleBook extends Component {
   render() {
     // console.log(asin);
     return (
-      <Card
-        className={styles.customCardImg}
-        onClick={this.handleClick}
-        className='mb-3'
-      >
+      <Card className={styles.customCardImg} onClick={this.handleClick}>
         <Card.Img variant='top' src={this.props.book.img} alt='book cover' />
       </Card>
     );

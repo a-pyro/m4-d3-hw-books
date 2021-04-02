@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 export default class AddComment extends Component {
   state = {
     comment: '',
-    rate: 1,
+    rate: '1',
     elementId: this.props.asin,
   };
   handleChange = (e) => {
@@ -18,9 +18,15 @@ export default class AddComment extends Component {
     });
   };
 
+  componentDidUpdate = () => {
+    console.log('add comm did up');
+    console.log(this.state);
+    console.log(this.props.asin);
+  };
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.state);
+    console.log(this.props.asin);
     try {
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/`,

@@ -30,7 +30,7 @@ export default class CommentArea extends Component {
         const data = await resp.json();
         console.log(data);
         this.setState({ commentList: data, isLoading: false });
-        console.log(this.state.commentList);
+        // console.log(this.state.commentList);
       } else {
         // console.log('resp not ok');
       }
@@ -41,7 +41,7 @@ export default class CommentArea extends Component {
   };
 
   componentDidUpdate = (prevProp) => {
-    console.log('COMMENT AREA DID UPDATE');
+    // console.log('COMMENT AREA DID UPDATE');
 
     if (prevProp.bookAsin !== this.props.bookAsin) {
       this.fetchComments();
