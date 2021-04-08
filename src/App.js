@@ -80,7 +80,7 @@ class App extends Component {
         {this.state.isLoading ? (
           <Spinner animation='grow' />
         ) : (
-          <BookList listOfBooks={this.state.listOfBooks} />
+          <BookList listOfBooks={this.state.listOfBooks.slice(0, 15)} />
         )}
       </>
     );
