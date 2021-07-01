@@ -11,7 +11,7 @@ export default class SingleComment extends Component {
 
           headers: {
             Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MTcyMDE4NjMsImV4cCI6MTYxODQxMTQ2M30.ru_9O8RdNoCPKpFG-dgtPC8cqI3OozYpyQArNhtE9yg',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMDNjNDg5YzI2ZjAwMTU3ZjljNDMiLCJpYXQiOjE2MjUxNDgyMDQsImV4cCI6MTYyNjM1NzgwNH0.3HhdK6t7oeXt5LpONAYiU2a_Ap043ucIpJxFfUQTVDA',
           },
         }
       );
